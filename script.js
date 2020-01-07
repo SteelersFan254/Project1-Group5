@@ -40,7 +40,7 @@ var getArtistInfo = function(data) {
     containerEl.append(makeDiv);
     //find a way to get rid of the href after bio
     //find a way to get rid of quotes
-    //clean up fonts and sizing **CSS**
+    //clean up fonts and sizing *sdfasdfgit*CSS**
     //make it fit on page or make page scrollable
   
   });
@@ -54,11 +54,10 @@ var getAlbumInfo = function (albums) {
     console.log(albums);
     containerEl.append(makeDiv);
       var makePic = $("<img>")
-      for (i=0; i < 3; i++){
       makePic.attr("src", JSON.parse(JSON.stringify(albums.topalbums.album[i].image[3]["#text"])))
       //how do i call this array with #text at the end
       makeDiv.append(makePic)
-      }
+      
   });
 
 };
@@ -69,7 +68,7 @@ var searchLastFM = function (artist) {
     url: queryURL,
     method: "GET"
   }).then(function (response) {
-    getArtistInfo(response);
+    getArtistInfo(response);git 
     //Calling the function inside of this function; 2nd tier call
     console.log(response)
   });
