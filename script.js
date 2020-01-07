@@ -48,8 +48,6 @@ var getArtistInfo = function(data) {
 
 // searchBtn.on("click", function () {
 // });
-var title = prompt("what Artist would you want to know more about?");
-var redirectHelper = "https://cors-ut-bootcamp.herokuapp.com/"; 
-var queryURL2= redirectHelper + "api.deezer.com/artist/27";
+// 
 
 
