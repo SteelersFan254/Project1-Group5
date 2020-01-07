@@ -87,6 +87,4 @@ var searchLastFM2 = function (artist) {
 };
 searchLastFM(artist);
 //calling the Ajax function; 1st tier call
-searchLastFM2(artist);
-
-
+searchLastFM2(artist)
