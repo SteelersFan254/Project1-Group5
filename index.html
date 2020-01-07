@@ -9,6 +9,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <header>
         <div class="jumbotron"></div>
     </header>
@@ -36,6 +37,23 @@
 
     </div>
 
+=======
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        var artist = "Cher"
+        var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+            console.log(response.artist.bio.links.summary);
+        });
+    </script>
+>>>>>>> 6269abc3859f89bfbf3e2aac457d227e11ecc375
 </body>
 
 </html>
