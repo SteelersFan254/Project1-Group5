@@ -12,7 +12,6 @@ var results = $("#resultsList");
 // });
 var title = prompt("what Artist would you want to know more about?");
 var redirectHelper = "https://cors-ut-bootcamp.herokuapp.com/"; 
-var queryURL = "https://api.deezer.com/version/service/id/method/?parameters/search/artist/?q=eminem&index=0&limit=2&output=xml";
 var queryURL2= redirectHelper + "api.deezer.com/artist/27";
 
 
