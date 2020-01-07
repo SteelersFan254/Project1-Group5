@@ -14,17 +14,17 @@ var getArtistInfo = function(data) {
   //This function puts the artist info on the page; 3rd tier call
   buttonClick.click(function () {
     console.log(data);
-    makeH2.text(JSON.stringify(data.artist.name));
+    makeH2.text(JSON.parse(JSON.stringify(data.artist.name)));
     makeDiv.append(makeH2);
     makeTags.text(" TOP TAGS");
     makeBioLine.text("Short Bio")
-    makeP.text(JSON.stringify(data.artist.bio.summary));
+    makeP.text(JSON.parse(JSON.stringify(data.artist.bio.summary)));
     makeYearPublishedLine.text("Year Published");
-    makeYearPublished.text(JSON.stringify(data.artist.bio.published));
+    makeYearPublished.text(JSON.parse(JSON.stringify(data.artist.bio.published)));
     makeDiv.append(makeTags);
     for (i=0; i < 5; i++) {
       var makeTag = $("<p>")
-    makeTag.text(JSON.stringify(data.artist.tags.tag[i].name));
+    makeTag.text(JSON.parse(JSON.stringify(data.artist.tags.tag[i].name)));
     makeDiv.append(makeTag);
     }
     //needs a square around each tag and all on one line **CSS**
@@ -40,7 +40,7 @@ var getArtistInfo = function(data) {
     containerEl.append(makeDiv);
     //find a way to get rid of the href after bio
     //find a way to get rid of quotes
-    //clean up fonts and sizing **CSS**
+    //clean up fonts and sizing *sdfasdfgit*CSS**
     //make it fit on page or make page scrollable
   
   });
@@ -54,11 +54,11 @@ var getAlbumInfo = function (albums) {
     console.log(albums);
     containerEl.append(makeDiv);
       var makePic = $("<img>")
-
-      makePic.attr("src", JSON.stringify(albums.topalbums.album[0].image[3][]))
+      makePic.attr("src", JSON.parse(JSON.stringify(albums.topalbums.album[i].image[3]["#text"])))
       //how do i call this array with #text at the end
       makeDiv.append(makePic)
-  })
+      
+  });
 
 };
 var searchLastFM = function (artist) {
