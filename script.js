@@ -46,14 +46,18 @@ var getArtistInfo = function(data) {
   });
 };
 
-var getAlbumInfo = function (album) {
+var getAlbumInfo = function (albums) {
   var btnClick = $("#Btn")
   var makeDiv = $("<div>")
 
   btnClick.click(function () {
-    console.log(album);
-    makeDiv.text("hello");
+    console.log(albums);
     containerEl.append(makeDiv);
+      var makePic = $("<img>")
+
+      makePic.attr("src", JSON.stringify(albums.topalbums.album[0].image[3][]))
+      //how do i call this array with #text at the end
+      makeDiv.append(makePic)
   })
 
 };
