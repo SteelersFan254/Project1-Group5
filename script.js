@@ -46,8 +46,45 @@ var getArtistInfo = function(data) {
   });
 };
 
-// searchBtn.on("click", function () {
-// });
-// 
+var getAlbumInfo = function (albums) {
+  var btnClick = $("#Btn")
+  var makeDiv = $("<div>")
 
+  btnClick.click(function () {
+    console.log(albums);
+    containerEl.append(makeDiv);
+      var makePic = $("<img>")
 
+      makePic.attr("src", JSON.stringify(albums.topalbums.album[0].image[3][]))
+      //how do i call this array with #text at the end
+      makeDiv.append(makePic)
+  })
+
+};
+var searchLastFM = function (artist) {
+  var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function (response) {
+    getArtistInfo(response);
+    //Calling the function inside of this function; 2nd tier call
+    console.log(response)
+  });
+
+};
+var searchLastFM2 = function (artist) {
+  var queryURL2 = "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
+
+  $.ajax({
+    url: queryURL2,
+    method: "GET"
+  }).then(function (response) {
+    getAlbumInfo(response);
+  });
+
+};
+searchLastFM(artist);
+//calling the Ajax function; 1st tier call
+searchLastFM2(artist)
