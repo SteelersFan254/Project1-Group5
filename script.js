@@ -68,7 +68,7 @@ var searchLastFM = function (artist) {
     url: queryURL,
     method: "GET"
   }).then(function (response) {
-    getArtistInfo(response);git 
+    getArtistInfo(response);
     //Calling the function inside of this function; 2nd tier call
     console.log(response)
   });
