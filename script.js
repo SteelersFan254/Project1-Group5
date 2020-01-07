@@ -134,5 +134,9 @@ var searchLastFM3 = function (artist) {
 };
 searchLastFM(artist);
 //calling the Ajax function; 1st tier call
+<<<<<<< HEAD
 searchLastFM2(artist);
 searchLastFM3(artist);
+=======
+searchLastFM2(artist)
+>>>>>>> origin
