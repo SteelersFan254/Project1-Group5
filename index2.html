@@ -3,12 +3,8 @@
 
 <head>
     <title>Color Game</title>
-<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-=======
-    <link rel="stylesheet" type="text/css" href="#">
->>>>>>> ed22066fb5ab7edf2f7d8a6b056d8f29ce11d7d2
 </head>
 
 <body>
@@ -19,7 +15,9 @@
 
         #container {
             margin: 0px auto;
-            max-width: 600px;
+            max-width: 960px;
+            height: 100%;
+            background-color: white;
         }
 
         #stripe {
@@ -30,24 +28,25 @@
         }
 
         h1 {
-            color: white;
+            color: yellow;
         }
     </style>
     <h1>
         The Great <span id="Display">New Artist</span> Search!
     </h1>
-
-    <div id="stripe">
-        <button id="reset">New Artist</button>
-        <span id="message"></span>
-
-    </div>
-
     <div id="container">
+        <div id="stripe">
+            <button id="reset">New Artist</button>
+            <button id="Btn">New Artist</button>
+            <span id="message"></span>
+
+        </div>
+
+
         <div class="square"></div>
     </div>
-
-    <script type="text/javascript" src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
