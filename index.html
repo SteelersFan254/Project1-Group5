@@ -9,35 +9,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-    <header>
-        <div class="jumbotron"></div>
-    </header>
-    <div class="container">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript">
-            // constructing a queryURL variable we will use instead of the literal string inside of the ajax method
-            var title = prompt("what movie would you want to know more about?");
-            var queryURL = "https://deezerdevs-deezer.p.rapidapi.com/search" + title + "a1da4eb866msh9e027e2fc79923dp1f09b2jsnb48eb4f30926";
-
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).then(function (response) {
-                console.log(response);
-            
-                console.log(poster);
-                console.log(album);
-                console.log(Artist);
-            });
-            // ---------------------------------------------------------
-
-
-        </script>
-
-    </div>
-
-=======
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -53,7 +24,6 @@
             console.log(response.artist.bio.links.summary);
         });
     </script>
->>>>>>> 6269abc3859f89bfbf3e2aac457d227e11ecc375
 </body>
 
 </html>
