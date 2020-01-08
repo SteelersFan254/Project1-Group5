@@ -59,33 +59,35 @@ var getAlbumInfo = function (albums) {
     console.log(albums);
     makeBigDiv.attr("class", "albumsContainer")
     containerEl.append(makeBigDiv);
+    console.log("add album container")
     //step 1. make the album container
     var makePic = $("<img>")
     for (i = 0; i < 3; i++) {
       var makePic = $("<img>")
       var makeDiv = $("<div>")
+
       makeBigDiv.append(makeDiv)
+      console.log("adds div" + i)
       makePic.attr("src", JSON.parse(JSON.stringify(albums.topalbums.album[i].image[2]["#text"])))
       makeDiv.attr("class", "div" + i)
       makeDiv.append(makePic)
-      var getTrackInfo = function (trcks) {
-        for (k = 0; k < 5; k++) {
-          var makeTrackName = $("<p>")
-          makeTrackName.text(JSON.stringify(trcks.album.tracks.track[k].name))
-          console.log(JSON.stringify(trcks.album.tracks.track[0].name));
-          makeDiv.append(makeTrackName)
-        }
-      }
-      var searchLastFM3 = function (artist) {
+      console.log("add pic" + i + " to div" + i)
+      function searchLastFM3(artist) {
+        console.log("i is currently at " + i + "inside the searchLast Fm3 function")
         var queryURL3 = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&artist=" + artist + "&album=" + albums.topalbums.album[i].name + "&format=json"
 
         $.ajax({
           url: queryURL3,
           method: "GET"
         }).then(function (response) {
-          getTrackInfo(response);
+          console.log("i is currently at " + i + "inside the AJAX function")
+          var makeTrackName = $("<p>")
+          makeTrackName.text(JSON.stringify(response.album.tracks.track[0].name))
+          console.log("k loop is producing songs for the " + i + " album");
           console.log(response)
+          makeDiv.append(makeTrackName)
         });
+        console.log("is at " + i + " after the AJAX function")
       };
       searchLastFM3(artist)
     }
@@ -135,4 +137,4 @@ var searchLastFM3 = function (artist) {
 searchLastFM(artist);
 //calling the Ajax function; 1st tier call
 searchLastFM2(artist);
-searchLastFM3(artist);
+
