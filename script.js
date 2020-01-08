@@ -60,7 +60,7 @@ var getAlbumInfo = function (albums) {
     makeBigDiv.attr("class", "albumsContainer")
     containerEl.append(makeBigDiv);
     var makePic = $("<img>")
-    for (var i = 0; i < 3; i++) {
+    for (i = 0; i < 3; i++) {
       let makePic = $("<img>")
       let makeDiv = $("<div>")
       makeBigDiv.append(makeDiv)
