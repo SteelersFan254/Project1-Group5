@@ -9,6 +9,7 @@
 </head>
 <body>
 
+<<<<<<< HEAD
     <div id="bg"></div>
 
     <header>
@@ -17,6 +18,9 @@
         <input class="input" type="text" placeholder="Artist Name">
         <button class="btn">Search</button>
     </header>
+=======
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+>>>>>>> master
 
     <main><!-- Albums or Tracks go here-->
         <section id="card">
@@ -45,5 +49,16 @@
         </section>
     </main>
 
+<<<<<<< HEAD
+=======
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+            console.log(response.artist.bio.links.summary);
+        });
+    </script>
+>>>>>>> master
 </body>
 </html>
