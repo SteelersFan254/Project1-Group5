@@ -1,62 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+
 
 <head>
-    <title>Artist Search</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="#">
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="scss/style.css">
 </head>
 
 <body>
-    <style>
+    <div id="bg"></div>
+    <header>
+        <a href="#">Artist Search</a>
+        <!-- <label for="input">Search For Your Favorite Artist</label> -->
+        <input class="input" type="text" placeholder="Artist Name">
+        <button class="btn">Search</button>
+    </header>
+    <main>
+        <!-- Albums or Tracks go here-->
+        <section id="card">
+            <ul>
+                <li>
+                    <span></span>
+                    <strong>Album</strong>
+                </li>
+                <li>
+                    <span></span>
+                    <strong>Album</strong>
+                </li>
+                <li>
+                    <span></span>
+                    <strong>Album</strong>
+                </li>
+            </ul>
+        </section>
+        <section id="primary">
+            <!-- image -->
+            <img src="" alt="">
+            <h1>The Artist Image Goes Here</h1>
+            <p>clean up fonts and sizing **CSS**.</p>
 
-    </style>
-    <h1>
-        The Great <span id="Display">New Artist</span> Search!
-
-    </h1>
-    <div id="container">
-        <div id="stripe">
-            <!-- new artist input -->
-            <input type="text" name="" id="Search" spaceholder="Artist">
-            <!-- New Artist button -->
-            <button id="reset">New Artist</button>
-            <span id="message"></span>
-        </div>
-
-
-        <!-- image goes here -->
-        <div id="img" class="absolute col-4"><img src="" alt="">
-            <b>Artist image</b><br />
-
-            <!-- tags -->
-            <div class="row1"></div>
-            <!-- related artists -->
-            <div class="row2"></div>
-        </div>
-
-        <!-- bio div -->
-        <div id="bio" class="absolute colOne col-md-4">
-            <b>Biography</b><br />
-        </div>
-
-        <div class="row">
-            <!-- albums -->
-            <div class="albums colTwo col-md-4"></div>
-
-            <!-- tickets -->
-            <div class="fa-ticket col-md-4">
-
-            </div>
-
-        </div>
-
-        <div class="square"></div>
-    </div>
-
-
+            <a href="#">Insert Something Interesting Inside Here!</a>
+        </section>
+    </main>
 </body>
 
 </html>
