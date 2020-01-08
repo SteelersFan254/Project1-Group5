@@ -60,6 +60,7 @@ var getAlbumInfo = function (albums) {
     makeBigDiv.attr("class", "albumsContainer")
     containerEl.append(makeBigDiv);
     var makePic = $("<img>")
+<<<<<<< HEAD
     for (var i = 0; i < 3; i++) {
       let makePic = $("<img>")
       let makeDiv = $("<div>")
@@ -67,6 +68,20 @@ var getAlbumInfo = function (albums) {
       makePic.attr("src", JSON.parse(JSON.stringify(albums.topalbums.album[i].image[2]["#text"])))
       makeDiv.attr("class", "div" + i)
       console.log("Creating Div:" + i)
+=======
+    for (i = 0; i < 3; i++) {
+      var makePic = $("<img>")
+<<<<<<< HEAD
+
+      makePic.attr("src", JSON.stringify(albums.topalbums.album[0].image[3]))
+      //how do i call this array with #text at the end
+=======
+      var makeDiv = $("<div>")
+      makeBigDiv.append(makeDiv)
+      makePic.attr("src", JSON.parse(JSON.stringify(albums.topalbums.album[i].image[2]["#text"])))
+      makeDiv.attr("class", "div" + i)
+>>>>>>> master
+>>>>>>> master
       makeDiv.append(makePic)
       console.log("Creating Pic:" + i)
       var searchLastFM3 = function (artist) {

@@ -3,50 +3,59 @@
 
 <head>
     <title>Artist Search</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="#">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="scss/style.css">
 </head>
 
 <body>
     <style>
-        body {
-            background-color: #232323;
-        }
 
-        #container {
-            margin: 0px auto;
-            max-width: 960px;
-            height: 100%;
-            background-color: white;
-        }
-
-        #stripe {
-            background: white;
-            height: 30px;
-            text-align: center;
-            color: black;
-        }
-
-        h1 {
-            color: yellow;
-        }
     </style>
     <h1>
         The Great <span id="Display">New Artist</span> Search!
+
     </h1>
     <div id="container">
         <div id="stripe">
+            <!-- new artist input -->
+            <input type="text" name="" id="Search" spaceholder="Artist">
+            <!-- New Artist button -->
             <button id="reset">New Artist</button>
-            <button id="Btn">New Artist</button>
             <span id="message"></span>
-
         </div>
 
 
+        <!-- image goes here -->
+        <div id="img" class="absolute col-4"><img src="" alt="">
+            <b>Artist image</b><br />
+
+            <!-- tags -->
+            <div class="row1"></div>
+            <!-- related artists -->
+            <div class="row2"></div>
+        </div>
+
+        <!-- bio div -->
+        <div id="bio" class="absolute colOne col-md-4">
+            <b>Biography</b><br />
+        </div>
+
+        <div class="row">
+            <!-- albums -->
+            <div class="albums colTwo col-md-4"></div>
+
+            <!-- tickets -->
+            <div class="fa-ticket col-md-4">
+
+            </div>
+
+        </div>
+
         <div class="square"></div>
     </div>
-    <script src="script.js"></script>
+
 
 </body>
 
