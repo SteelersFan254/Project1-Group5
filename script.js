@@ -59,32 +59,31 @@ var getAlbumInfo = function (albums) {
     console.log(albums);
     makeBigDiv.attr("class", "albumsContainer")
     containerEl.append(makeBigDiv);
-    //step 1. make the album container
     var makePic = $("<img>")
-    for (i = 0; i < 3; i++) {
-      var makePic = $("<img>")
-      var makeDiv = $("<div>")
+    for (var i = 0; i < 3; i++) {
+      let makePic = $("<img>")
+      let makeDiv = $("<div>")
       makeBigDiv.append(makeDiv)
       makePic.attr("src", JSON.parse(JSON.stringify(albums.topalbums.album[i].image[2]["#text"])))
       makeDiv.attr("class", "div" + i)
+      console.log("Creating Div:" + i)
       makeDiv.append(makePic)
-      var getTrackInfo = function (trcks) {
-        for (k = 0; k < 5; k++) {
-          var makeTrackName = $("<p>")
-          makeTrackName.text(JSON.stringify(trcks.album.tracks.track[k].name))
-          console.log(JSON.stringify(trcks.album.tracks.track[0].name));
-          makeDiv.append(makeTrackName)
-        }
-      }
+      console.log("Creating Pic:" + i)
       var searchLastFM3 = function (artist) {
         var queryURL3 = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&artist=" + artist + "&album=" + albums.topalbums.album[i].name + "&format=json"
-
+        console.log("i is at " + i + "in the searchLastFM function")
         $.ajax({
           url: queryURL3,
           method: "GET"
         }).then(function (response) {
-          getTrackInfo(response);
-          console.log(response)
+          console.log("i is at " + i + "in the AJAX function")
+          for (k = 0; k < 5; k++) {
+            var makeTrackName = $("<p>")
+            makeTrackName.text(JSON.stringify(response.album.tracks.track[k].name))
+            console.log("song are produced from the " + i + "album");
+            console.log(response)
+            makeDiv.append(makeTrackName)
+          }
         });
       };
       searchLastFM3(artist)
