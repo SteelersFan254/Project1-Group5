@@ -1,59 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="scss/style.css">
 </head>
-
 <body>
-<<<<<<< HEAD
+
+    <div id="bg"></div>
+
     <header>
-        <div class="jumbotron"></div>
+        <a href="#">Artist Search</a>
+        <!-- <label for="input">Search For Your Favorite Artist</label> -->
+        <input class="input" type="text" placeholder="Artist Name">
+        <button class="btn">Search</button>
     </header>
-    <div class="container">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript">
-            // constructing a queryURL variable we will use instead of the literal string inside of the ajax method
-            var title = prompt("what movie would you want to know more about?");
-            var queryURL = "https://deezerdevs-deezer.p.rapidapi.com/search" + title + "a1da4eb866msh9e027e2fc79923dp1f09b2jsnb48eb4f30926";
 
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).then(function (response) {
-                console.log(response);
-            
-                console.log(poster);
-                console.log(album);
-                console.log(Artist);
-            });
-            // ---------------------------------------------------------
+    <main><!-- Albums or Tracks go here-->
+        <section id="card">
+            <ul>
+                <li>
+                    <span></span>
+                    <strong>Album</strong>
+                </li>
+                <li>
+                    <span></span>
+                    <strong>Album</strong>
+                </li>
+                <li>
+                    <span></span>
+                    <strong>Album</strong>
+                </li>
+            </ul>
+        </section>
+        <section id="primary">
+            <!-- image -->
+            <img src="" alt="">
+            <h1>The Artist Image Goes Here</h1>
+            <p>clean up fonts and sizing **CSS**.</p>
 
+            <a href="#">Insert Something Interesting Inside Here!</a>
+        </section>
+    </main>
 
-        </script>
-
-    </div>
-
-=======
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <script type="text/javascript">
-        var artist = "Cher"
-        var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
-
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function (response) {
-            console.log(response);
-            console.log(response.artist.bio.links.summary);
-        });
-    </script>
->>>>>>> 6269abc3859f89bfbf3e2aac457d227e11ecc375
 </body>
-
 </html>
