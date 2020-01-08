@@ -55,7 +55,7 @@ var getAlbumInfo = function (albums) {
     containerEl.append(makeDiv);
       var makePic = $("<img>")
 
-      makePic.attr("src", JSON.stringify(albums.topalbums.album[0].image[3][]))
+      makePic.attr("src", JSON.stringify(albums.topalbums.album[0].image[3]))
       //how do i call this array with #text at the end
       makeDiv.append(makePic)
   })
