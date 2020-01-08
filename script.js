@@ -63,10 +63,16 @@ var getAlbumInfo = function (albums) {
     var makePic = $("<img>")
     for (i = 0; i < 3; i++) {
       var makePic = $("<img>")
+<<<<<<< HEAD
+
+      makePic.attr("src", JSON.stringify(albums.topalbums.album[0].image[3]))
+      //how do i call this array with #text at the end
+=======
       var makeDiv = $("<div>")
       makeBigDiv.append(makeDiv)
       makePic.attr("src", JSON.parse(JSON.stringify(albums.topalbums.album[i].image[2]["#text"])))
       makeDiv.attr("class", "div" + i)
+>>>>>>> master
       makeDiv.append(makePic)
       var getTrackInfo = function (trcks) {
         for (k = 0; k < 5; k++) {
