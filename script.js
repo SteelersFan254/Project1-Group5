@@ -33,8 +33,11 @@ btnClick.click(function () {
     primaryEl.append(makeTags);
     for (i = 0; i < 5; i++) {
       var makeTag = $("<p>")
+      var makeTagBox = $("<div>")
       makeTag.text(JSON.parse(JSON.stringify(data.artist.tags.tag[i].name)));
-      primaryEl.append(makeTag);
+      primaryEl.append(makeTagBox);
+      makeTagBox.attr("style", "background-color:green")
+      makeTagBox.append(makeTag);
     }
     cardEl.append(makeBioLine);
     cardEl.append(makeBio);
@@ -56,7 +59,7 @@ btnClick.click(function () {
       console.log(response)
     });
   };
- // searchLastFM(artist);
+  searchLastFM(artist);
 });
 
 btnClick.click(function (event) {
