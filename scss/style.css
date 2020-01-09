@@ -1,23 +1,21 @@
-body,
-html {
-  height: 1000px;
+body {
+  height: 100%;
 }
 
 body {
   font-family: "Montserrat";
   margin: 0;
-  background-image: url("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
 }
 
 body #bg {
+  background-image: url("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
   max-width: 100%;
-  height: auto;
-  position: absolute;
-  z-index: -1;
+  height: 100%;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
-  opacity: 0.8;
+  background-size: initial;
+  position: absolute;
+  z-index: -1;
 }
 
 @media (min-width: 960px) {
@@ -66,7 +64,8 @@ main section#card {
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   width: 80%;
-  opacity: 0.8;
+  opacity: 0.95;
+  display: none;
 }
 
 @media (min-width: 960px) {
@@ -99,7 +98,7 @@ main section#card ul li span {
   background-color: #ccdfff;
   border-radius: 50%;
   margin-right: 10px;
-  opacity: 0.8;
+  opacity: 0.95;
 }
 
 main section#card ul li strong {
@@ -116,7 +115,8 @@ main section#row {
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   width: 80%;
-  opacity: 0.8;
+  opacity: 0.95;
+  display: none;
 }
 
 main section#primary {
@@ -131,7 +131,8 @@ main section#primary {
   display: block;
   text-align: center;
   margin: 50px auto 0 auto;
-  opacity: 0.8;
+  opacity: 0.95;
+  display: none;
 }
 
 @media (min-width: 960px) {
@@ -171,7 +172,7 @@ main section#primary a {
   text-align: center;
   margin: 30px auto 0 auto;
   padding: 15px;
-  opacity: 0.8;
+  opacity: 0.95;
 }
 
 @media (min-width: 960px) {
