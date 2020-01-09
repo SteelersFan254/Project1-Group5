@@ -1,4 +1,4 @@
-var artist = prompt("artist?")
+var artist = prompt("asdfas")
 var buttonClick = $("#reset");
 var makeDiv = $("<div>");
 var makeAristName = $("<AristName>");
@@ -15,7 +15,6 @@ var makeBigDiv = $("#row")
 
 //This function puts the artist info on the page; 3rd tier call
 btnClick.click(function () {
-  console.log("artist function")
   var getArtistInfo = function (data) {
     makeAristName.text(JSON.parse(JSON.stringify(data.artist.name)));
     primaryEl.append(makeAristName);
@@ -50,11 +49,13 @@ btnClick.click(function () {
       console.log(response)
     });
   };
-  searchLastFM(artist);
+ // searchLastFM(artist);
 });
 
-btnClick.click(function () {
+btnClick.click(function (event) {
+  event.preventDefault()
   console.log("button is working")
+
   var getAlbumInfo = function (albums) {
     for (i = 0; i < 3; i++) {
       let makePic = $("<img>")
