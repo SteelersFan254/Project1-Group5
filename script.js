@@ -9,13 +9,11 @@ var makeBioLine = $("<h1>")
 var makeYearPublishedLine = $("<h1>")
 var makeYearPublished = $("<p>")
 var makeBtn = $("<button>")
-var btnClick = $("#artistBtn")
-var makeBigDiv = $("#albumContainer")
 
-
-//This function puts the artist info on the page; 3rd tier call
-buttonClick.click(function () {
-  var getArtistInfo = function (data) {
+var getArtistInfo = function (data) {
+  //This function puts the artist info on the page; 3rd tier call
+  buttonClick.click(function () {
+    console.log(data);
     makeH2.text(JSON.parse(JSON.stringify(data.artist.name)));
     makeDiv.append(makeH2);
     makeTags.text(" TOP TAGS");
@@ -29,6 +27,7 @@ buttonClick.click(function () {
       makeTag.text(JSON.parse(JSON.stringify(data.artist.tags.tag[i].name)));
       makeDiv.append(makeTag);
     }
+    //needs a square around each tag and all on one line **CSS**
     makeDiv.append(makeBioLine);
     makeDiv.append(makeP);
     makeDiv.append(makeYearPublishedLine);
@@ -36,29 +35,29 @@ buttonClick.click(function () {
     makeBtn.text("Click for Top Albums")
     makeBtn.attr("id", "albumBtn")
     makeDiv.append(makeBtn);
+
+
     containerEl.append(makeDiv);
-  }
-  function searchLastFM(artist) {
-    var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
+    //find a way to get rid of the href after bio
+    //find a way to get rid of quotes
+    //clean up fonts and sizing **CSS**
+    //make it fit on page or make page scrollable
 
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function (response) {
-      getArtistInfo(response);
-    });
-  };
-  searchLastFM(artist);
-});
-
+  });
+};
 
 // takes an artist
 // looks up their list of albums
 // adds that list of albums with their songs to the page
 
-btnClick.click(function () {
-  console.log("button is working")
-  var getAlbumInfo = function (albums) {
+var getAlbumInfo = function (albums) {
+  var btnClick = $("#Btn")
+
+  var makeBigDiv = $("<div>")
+
+  btnClick.click(function () {
+    console.log(albums);
+    makeBigDiv.attr("class", "albumsContainer")
     containerEl.append(makeBigDiv);
     var makePic = $("<img>")
     for (i = 0; i < 3; i++) {
@@ -80,10 +79,10 @@ btnClick.click(function () {
         }).then(function (response) {
           console.log("i is at " + i + "in the AJAX function")
           for (k = 0; k < 5; k++) {
-            console.log(response)
             var makeTrackName = $("<p>")
-            makeTrackName.text(JSON.parse(JSON.stringify(response.album.tracks.track[k].name)))
+            makeTrackName.text(JSON.stringify(response.album.tracks.track[k].name))
             console.log("song are produced from the " + i + "album");
+            console.log(response)
             makeDiv.append(makeTrackName)
           }
         });
@@ -91,20 +90,50 @@ btnClick.click(function () {
       };
       searchLastFM3(artist)
     }
-  }
-  var searchLastFM2 = function (artist) {
-    var queryURL2 = "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
+  });
+  ///add pic1 to div1
+  ///add tracks to div1
+  ///add div 1 to bigdiv
 
-    $.ajax({
-      url: queryURL2,
-      method: "GET"
-    }).then(function (response) {
-      getAlbumInfo(response)
-      console.log(response)
-    });
 
-  };
-  console.log(artist)
-  searchLastFM2(artist);
-});
+
+};
+var searchLastFM = function (artist) {
+  var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function (response) {
+    getArtistInfo(response);
+    //Calling the function inside of this function; 2nd tier call
+    console.log(response)
+  });
+
+};
+var searchLastFM2 = function (artist) {
+  var queryURL2 = "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
+
+  $.ajax({
+    url: queryURL2,
+    method: "GET"
+  }).then(function (response) {
+    getAlbumInfo(response);
+  });
+
+};
+var searchLastFM3 = function (artist) {
+  var queryURL3 = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&artist=" + artist + "&album=Indicud&format=json"
+
+  $.ajax({
+    url: queryURL3,
+    method: "GET"
+  }).then(function (response) {
+    console.log(response);
+  });
+
+};
+searchLastFM(artist);
+//calling the Ajax function; 1st tier call
+searchLastFM2(artist);
 
