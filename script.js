@@ -13,6 +13,13 @@ var makeBtn = $("<button>")
 var btnClick = $("#artistBtn")
 var makeBigDiv = $("#row")
 
+
+// function searchArtist (){
+//   var artist = document.getElementById("searchInput").value;
+//   console.log(artist);
+//   return artist
+
+// }
 //This function puts the artist info on the page; 3rd tier call
 btnClick.click(function () {
   var getArtistInfo = function (data) {
@@ -80,6 +87,7 @@ btnClick.click(function (event) {
             var makeTrackName = $("<p>")
             makeTrackName.text(JSON.parse(JSON.stringify(response.album.tracks.track[k].name)))
             console.log("song are produced from the " + i + "album");
+            console.log(response)
             makeDiv.append(makeTrackName)
           }
         });
