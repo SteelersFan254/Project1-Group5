@@ -1,19 +1,21 @@
-
+body {
+  height: 100%;
+}
 
 body {
   font-family: "Montserrat";
   margin: 0;
-  background-image: url("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
 }
 
 body #bg {
+  background-image: url("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
   max-width: 100%;
-  height: auto;
-  position: absolute;
-  z-index: -1;
+  height: 100%;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: initial;
+  position: absolute;
+  z-index: -1;
 }
 
 @media (min-width: 960px) {
@@ -37,6 +39,13 @@ body header {
   text-transform: uppercase;
 }
 
+body header a {
+  text-transform: uppercase;
+  font-size: 2em;
+  color: white;
+  margin-bottom: 20px;
+}
+
 @media (min-width: 960px) {
   main {
     display: -ms-grid;
@@ -55,6 +64,8 @@ main section#card {
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   width: 80%;
+  opacity: 0.95;
+  display: none;
 }
 
 @media (min-width: 960px) {
@@ -87,6 +98,7 @@ main section#card ul li span {
   background-color: #ccdfff;
   border-radius: 50%;
   margin-right: 10px;
+  opacity: 0.95;
 }
 
 main section#card ul li strong {
@@ -103,12 +115,24 @@ main section#row {
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   width: 80%;
+  opacity: 0.95;
+  display: none;
 }
 
 main section#primary {
   color: #fff;
   padding: 15px;
+  color: #001333;
+  border-radius: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #fff6bb;
+  display: block;
   text-align: center;
+  margin: 50px auto 0 auto;
+  opacity: 0.95;
+  display: none;
 }
 
 @media (min-width: 960px) {
@@ -146,8 +170,9 @@ main section#primary a {
   background-color: #fff6bb;
   display: block;
   text-align: center;
-  margin: 50px auto 0 auto;
+  margin: 30px auto 0 auto;
   padding: 15px;
+  opacity: 0.95;
 }
 
 @media (min-width: 960px) {
