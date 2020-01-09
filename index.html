@@ -6,10 +6,13 @@
 
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    
     <link rel="stylesheet" href="scss/style.css">
 
 </head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
 <body>
 
@@ -17,9 +20,10 @@
         <header>
             <a href="#">Artist Search</a>
             <!-- <label for="input">Search For Your Favorite Artist</label> -->
-            <input class="input" type="text" placeholder="Artist Name">
-            <button class="btn" id= "artistBtn" >Search</button>
+            <input class="input" type="text" placeholder="Artist Name" id="searchInput">
+            <button class="btn" id="artistBtn">Search</button>
         </header>
+
         <main>
             <section id="primary">
                 <!-- image -->
@@ -29,6 +33,7 @@
             </section>
 
             <section id="row">
+                
             </section>
             
             <!-- Albums or Tracks go here-->
@@ -51,9 +56,9 @@
 
 
         </main>
-    </div>
-    <script src="script.js"></script>
 
 </body>
+
+<script src="script.js"></script>
 
 </html>
