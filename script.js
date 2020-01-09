@@ -59,23 +59,48 @@ var getAlbumInfo = function (albums) {
     console.log(albums);
     makeBigDiv.attr("class", "albumsContainer")
     containerEl.append(makeBigDiv);
+<<<<<<< HEAD
+    console.log("add album container")
+    //step 1. make the album container
     var makePic = $("<img>")
-    for (var i = 0; i < 3; i++) {
+    for (i = 0; i < 3; i++) {
+      var makePic = $("<img>")
+      var makeDiv = $("<div>")
+
+=======
+    var makePic = $("<img>")
+    for (i = 0; i < 3; i++) {
       let makePic = $("<img>")
       let makeDiv = $("<div>")
+>>>>>>> d9d0fddc9a0fcafc630e6474185ce4a917077fc2
       makeBigDiv.append(makeDiv)
+      console.log("adds div" + i)
       makePic.attr("src", JSON.parse(JSON.stringify(albums.topalbums.album[i].image[2]["#text"])))
       makeDiv.attr("class", "div" + i)
       console.log("Creating Div:" + i)
       makeDiv.append(makePic)
+<<<<<<< HEAD
+      console.log("add pic" + i + " to div" + i)
+      function searchLastFM3(artist) {
+        console.log("i is currently at " + i + "inside the searchLast Fm3 function")
+=======
       console.log("Creating Pic:" + i)
       var searchLastFM3 = function (artist) {
+>>>>>>> d9d0fddc9a0fcafc630e6474185ce4a917077fc2
         var queryURL3 = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&artist=" + artist + "&album=" + albums.topalbums.album[i].name + "&format=json"
         console.log("i is at " + i + "in the searchLastFM function")
         $.ajax({
           url: queryURL3,
           method: "GET"
         }).then(function (response) {
+<<<<<<< HEAD
+          console.log("i is currently at " + i + "inside the AJAX function")
+          var makeTrackName = $("<p>")
+          makeTrackName.text(JSON.stringify(response.album.tracks.track[0].name))
+          console.log("k loop is producing songs for the " + i + " album");
+          console.log(response)
+          makeDiv.append(makeTrackName)
+=======
           console.log("i is at " + i + "in the AJAX function")
           for (k = 0; k < 5; k++) {
             var makeTrackName = $("<p>")
@@ -84,7 +109,9 @@ var getAlbumInfo = function (albums) {
             console.log(response)
             makeDiv.append(makeTrackName)
           }
+>>>>>>> d9d0fddc9a0fcafc630e6474185ce4a917077fc2
         });
+        console.log("is at " + i + " after the AJAX function")
       };
       searchLastFM3(artist)
     }
@@ -134,4 +161,4 @@ var searchLastFM3 = function (artist) {
 searchLastFM(artist);
 //calling the Ajax function; 1st tier call
 searchLastFM2(artist);
-searchLastFM3(artist);
+
