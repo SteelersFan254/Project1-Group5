@@ -11,41 +11,37 @@
     <link rel="stylesheet" href="scss/style.css">
 </head>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 <body>
+    <style>
+        #albumContainer {
+            display: flex;
+            flex-direction: column;
+        }
+        </style>
     <div id="bg"></div>
     <header>
         <a href="#">Artist Search</a>
         <!-- <label for="input">Search For Your Favorite Artist</label> -->
-        <input class="input" type="text" placeholder="Artist Name">
-        <button class="btn">Search</button>
+        <input id="artistInput" class="input" type="text" placeholder="Artist Name">
+        <button class="btn" id="artistBtn">Search</button>
     </header>
+    
     <main>
         <!-- Albums or Tracks go here-->
         <section id="card">
-            <ul>
-                <li>
-                    <span></span>
-                    <strong>Album</strong>
-                </li>
-                <li>
-                    <span></span>
-                    <strong>Album</strong>
-                </li>
-                <li>
-                    <span></span>
-                    <strong>Album</strong>
-                </li>
-            </ul>
+           
         </section>
         <section id="primary">
             <!-- image -->
             <img src="" alt="">
-            <h1>The Artist Image Goes Here</h1>
-            <p>clean up fonts and sizing **CSS**.</p>
+             
 
-            <a href="#">Insert Something Interesting Inside Here!</a>
+            <a href="#" id="albumContainer">albums here</a>
         </section>
     </main>
 </body>
-
+<script src="./script.js"></script>
 </html>
