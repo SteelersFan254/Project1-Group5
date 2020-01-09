@@ -65,7 +65,7 @@ main section#card {
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   width: 80%;
   opacity: 0.95;
-  display: none;
+
 }
 
 @media (min-width: 960px) {
@@ -116,7 +116,7 @@ main section#row {
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   width: 80%;
   opacity: 0.95;
-  display: none;
+
 }
 
 main section#primary {
@@ -132,7 +132,7 @@ main section#primary {
   text-align: center;
   margin: 50px auto 0 auto;
   opacity: 0.95;
-  display: none;
+  
 }
 
 @media (min-width: 960px) {
