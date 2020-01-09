@@ -10,8 +10,7 @@ var makeYearPublishedLine = $("<h1>")
 var makeYearPublished = $("<p>")
 var makeBtn = $("<button>")
 var btnClick = $("#artistBtn")
-var makeBigDiv = $("#albumContainer")
-
+var makeBigDiv = $("#row")
 
 //This function puts the artist info on the page; 3rd tier call
 buttonClick.click(function () {
@@ -56,11 +55,11 @@ buttonClick.click(function () {
 // looks up their list of albums
 // adds that list of albums with their songs to the page
 
+
+
 btnClick.click(function () {
   console.log("button is working")
   var getAlbumInfo = function (albums) {
-    containerEl.append(makeBigDiv);
-    var makePic = $("<img>")
     for (i = 0; i < 3; i++) {
       let makePic = $("<img>")
       let makeDiv = $("<div>")
@@ -79,7 +78,7 @@ btnClick.click(function () {
           method: "GET"
         }).then(function (response) {
           console.log("i is at " + i + "in the AJAX function")
-          for (k = 0; k < 5; k++) {
+          for (k = 0; k < response.album.tracks.track.length; k++) {
             console.log(response)
             var makeTrackName = $("<p>")
             makeTrackName.text(JSON.parse(JSON.stringify(response.album.tracks.track[k].name)))
@@ -104,7 +103,7 @@ btnClick.click(function () {
     });
 
   };
-  console.log(artist)
-  searchLastFM2(artist);
+  searchLastFM2(artist)
+ 
 });
 
