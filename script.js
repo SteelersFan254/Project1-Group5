@@ -135,3 +135,19 @@ searchLastFM(artist);
 //calling the Ajax function; 1st tier call
 searchLastFM2(artist);
 searchLastFM3(artist);
+
+
+ searchEvent = function (artist) {
+  var queryURL4 = "https://api.stubhub.com/sellers/search/events/v3" + artist + "&api_key=Gse24mx7SNwA5d5frsH0wul9qPwuq62w&format=json"
+
+  $.ajax({
+    url: queryURL4,
+    method: "GET"
+  }).then(function (response) {
+    getEventInfo(response);
+    //Calling the function inside of this function; 2nd tier call
+    console.log(response)
+  });
+}
+
+console.log("it brought up" + searchEvent)
