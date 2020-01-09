@@ -1,11 +1,11 @@
-
-var artist = prompt("artist");
+var artist = prompt("asdfas")
 var buttonClick = $("#reset");
 var makeDiv = $("<div>");
-var makeH2 = $("<h2>");
-var makeP = $("<p>")
+var makeAristName = $("<AristName>");
+var makeBio = $("<p>")
 var makeTags = $("<h1>")
-var containerEl = $("#container");
+var cardEl = $("#card")
+var primaryEl = $("#primary")
 var makeBioLine = $("<h1>")
 var makeYearPublishedLine = $("<h1>")
 var makeYearPublished = $("<p>")
@@ -21,55 +21,48 @@ var makeBigDiv = $("#row")
 
 // }
 //This function puts the artist info on the page; 3rd tier call
-// buttonClick.click(function () {
-//   var getArtistInfo = function (data) {
-//     makeH2.text(JSON.parse(JSON.stringify(data.artist.name)));
-//     makeDiv.append(makeH2);
-//     makeTags.text(" TOP TAGS");
-//     makeBioLine.text("Short Bio")
-//     makeP.text(JSON.parse(JSON.stringify(data.artist.bio.summary)));
-//     makeYearPublishedLine.text("Year Published");
-//     makeYearPublished.text(JSON.parse(JSON.stringify(data.artist.bio.published)));
-//     makeDiv.append(makeTags);
-//     for (i = 0; i < 5; i++) {
-//       var makeTag = $("<p>")
-//       makeTag.text(JSON.parse(JSON.stringify(data.artist.tags.tag[i].name)));
-//       makeDiv.append(makeTag);
-//     }
-//     //needs a square around each tag and all on one line **CSS**
-//     makeDiv.append(makeBioLine);
-//     makeDiv.append(makeP);
-//     makeDiv.append(makeYearPublishedLine);
-//     makeDiv.append(makeYearPublished);
-//     makeBtn.text("Click for Top Albums")
-//     makeBtn.attr("id", "albumBtn")
-//     makeDiv.append(makeBtn);
-
-
-//     containerEl.append(makeDiv);
-//     //find a way to get rid of the href after bio
-//     //find a way to get rid of quotes
-//     //clean up fonts and sizing **CSS**
-//     //make it fit on page or make page scrollable
-    
-// }})
-
-// takes an artist
-// looks up their list of albums
-// adds that list of albums with their songs to the page
-
-// function searchArtist (){
-//   var artist = document.getElementById("searchInput").value;
-//   console.log(artist);
-//   return artist
-
 btnClick.click(function () {
+  var getArtistInfo = function (data) {
+    makeAristName.text(JSON.parse(JSON.stringify(data.artist.name)));
+    primaryEl.append(makeAristName);
+    makeTags.text("TOP TAGS");
+    makeBioLine.text("Short Bio")
+    makeBio.text(JSON.parse(JSON.stringify(data.artist.bio.summary)));
+    makeYearPublishedLine.text("Year Published");
+    makeYearPublished.text(JSON.parse(JSON.stringify(data.artist.bio.published)));
+    primaryEl.append(makeTags);
+    for (i = 0; i < 5; i++) {
+      var makeTag = $("<p>")
+      makeTag.text(JSON.parse(JSON.stringify(data.artist.tags.tag[i].name)));
+      primaryEl.append(makeTag);
+    }
+    cardEl.append(makeBioLine);
+    cardEl.append(makeBio);
+    primaryEl.append(makeYearPublishedLine);
+    primaryEl.append(makeYearPublished);
+    makeBtn.text("Click for Top Albums")
+    makeBtn.attr("id", "albumBtn")
+    primaryEl.append(makeBtn);
+
+  }
+  function searchLastFM(artist) {
+    var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function (response) {
+      getArtistInfo(response);
+      console.log(response)
+    });
+  };
+ // searchLastFM(artist);
+});
+
+btnClick.click(function (event) {
+  event.preventDefault()
   console.log("button is working")
-  // function searchArtist (){
-//   var artist = document.getElementById("searchInput").value;
-//   console.log(artist);
-//   return artist
-  
+
   var getAlbumInfo = function (albums) {
     for (i = 0; i < 3; i++) {
       let makePic = $("<img>")
@@ -77,7 +70,7 @@ btnClick.click(function () {
       makeBigDiv.append(makeDiv)
       console.log("adds div" + i)
       makePic.attr("src", JSON.parse(JSON.stringify(albums.topalbums.album[i].image[2]["#text"])))
-      makeDiv.attr({"class": "albumDivs",})
+      makeDiv.attr("class", "albumDivs")
       console.log("Creating Div:" + i)
       makeDiv.append(makePic)
       console.log("Creating Pic:" + i)
@@ -111,11 +104,8 @@ btnClick.click(function () {
       method: "GET"
     }).then(function (response) {
       getAlbumInfo(response)
-      console.log(response)
     });
-
   };
   searchLastFM2(artist)
-
-});
+ });
 
