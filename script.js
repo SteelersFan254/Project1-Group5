@@ -19,8 +19,8 @@ var span = document.getElementById("close");
 artistBtn.click(function (event) {
   event.preventDefault
   primaryEl.empty();
-    cardEl.empty();
-    rowEl.attr("style", "visibility:hidden")
+  cardEl.empty();
+  rowEl.attr("style", "visibility:hidden")
   var getArtistInfo = function (data) {
     console.log(data)
     var makeArtistLink = $("<a href>")
@@ -114,59 +114,59 @@ $(document).on("click", "#albumBtn", function () {
 });
 
 
-// $(document).on("click", "#ticketBtn", function () {
-//   modal.style.display = "block";
-//   var modalEl = $("#modal")
-//   var makeHead = $("<p>")
-  
-//   makeHead.text("UPCOMING EVENTS")
-//   modalEl.append(makeHead)
-//   function searchTicketMaster(artist) {
-//     var queryURL = "https://app.ticketmaster.com/discovery/v2/attractions.json?keyword=" + artist + "&apikey=U4cbp5Q06iBqN3D21GrhUyfD2jsn5lAr"
-  
-//     $.ajax({
-//       url: queryURL,
-//       method: "GET"
-//     }).then(function (response) {
-//       console.log(response)
-//       function searchTicketMaster2(artist) {
-//         //var queryURL = "https://app.ticketmaster.com/discovery/v2/events/" + lala + ".json?apikey=U4cbp5Q06iBqN3D21GrhUyfD2jsn5lAr"
-//         var queryURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=U4cbp5Q06iBqN3D21GrhUyfD2jsn5lAr&attractionId=" + artist + "&locale=*"
-//         $.ajax({
-//           url: queryURL,
-//           method: "GET"
-//         }).then(function (response) {
-//           console.log(response)
-//           for (i=0; i < 3; i++) {
-//             console.log(i)
-//             let makeEventDiv = $("<div>")
-//             let makeEvent = $("<p>")
-//             let makeDate = $("<p>")
-//             let makePrice = $("<p>")
-//             let makeVenue = $("<p>")
-//             let makeAddress = $("<p>")
-//             makeEventDiv.attr("class", "div" + i)
-//             makeEventDiv.attr("style", "border-style: solid; border-color: black; border-width: 5px;")
-//             modalEl.append(makeEventDiv)
-//             makeEvent.text(response._embedded.events[i].name)
-//             makeEventDiv.append(makeEvent)
-//             makeDate.text("DATE: " + response._embedded.events[i].dates.start.localDate + " " + response._embedded.events[i].dates.start.localTime)
-//             makeEventDiv.append(makeDate)
-//             makeVenue.text("VENUE: " + response._embedded.events[i]._embedded.venues[0].name)
-//             makeEventDiv.append(makeVenue)
-//             makeAddress.text("ADDRESS: " + response._embedded.events[i]._embedded.venues[0].address.line1 + " " + " " + response._embedded.events[i]._embedded.venues[0].state.name + response._embedded.events[i]._embedded.venues[0].state.stateCode)
-//             makeEventDiv.append(makeAddress)
-//             makePrice.text("PRICE RANGE: $" + response._embedded.events[i].priceRanges[0].min + " - $" + response._embedded.events[i].priceRanges[0].max)
-//             makeEventDiv.append(makePrice)
-//             }
-//         });
-//       };
-//       searchTicketMaster2(response._embedded.attractions[0].id)
-  
-//     });
-//   };
-//   searchTicketMaster($("#artistName").val())
-// })
+$(document).on("click", "#ticketBtn", function () {
+  modal.style.display = "block";
+  var modalEl = $("#modal")
+  var makeHead = $("<p>")
+
+  makeHead.text("UPCOMING EVENTS")
+  modalEl.append(makeHead)
+  function searchTicketMaster(artist) {
+    var queryURL = "https://app.ticketmaster.com/discovery/v2/attractions.json?keyword=" + artist + "&apikey=U4cbp5Q06iBqN3D21GrhUyfD2jsn5lAr"
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function (response) {
+      console.log(response)
+      function searchTicketMaster2(artist) {
+        //var queryURL = "https://app.ticketmaster.com/discovery/v2/events/" + lala + ".json?apikey=U4cbp5Q06iBqN3D21GrhUyfD2jsn5lAr"
+        var queryURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=U4cbp5Q06iBqN3D21GrhUyfD2jsn5lAr&attractionId=" + artist + "&locale=*"
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function (response) {
+          console.log(response)
+          for (i = 0; i < 3; i++) {
+            console.log(i)
+            let makeEventDiv = $("<div>")
+            let makeEvent = $("<p>")
+            let makeDate = $("<p>")
+            let makePrice = $("<p>")
+            let makeVenue = $("<p>")
+            let makeAddress = $("<p>")
+            makeEventDiv.attr("class", "div" + i)
+            makeEventDiv.attr("style", "border-style: solid; border-color: black; border-width: 5px;")
+            modalEl.append(makeEventDiv)
+            makeEvent.text(response._embedded.events[i].name)
+            makeEventDiv.append(makeEvent)
+            makeDate.text("DATE: " + response._embedded.events[i].dates.start.localDate + " " + response._embedded.events[i].dates.start.localTime)
+            makeEventDiv.append(makeDate)
+            makeVenue.text("VENUE: " + response._embedded.events[i]._embedded.venues[0].name)
+            makeEventDiv.append(makeVenue)
+            makeAddress.text("ADDRESS: " + response._embedded.events[i]._embedded.venues[0].address.line1 + " " + " " + response._embedded.events[i]._embedded.venues[0].state.stateCode)
+            makeEventDiv.append(makeAddress)
+            makePrice.text("PRICE RANGE: $" + response._embedded.events[i].priceRanges[0].min + " - $" + response._embedded.events[i].priceRanges[0].max)
+            makeEventDiv.append(makePrice)
+          }
+        });
+      };
+      searchTicketMaster2(response._embedded.attractions[0].id)
+
+    });
+  };
+  searchTicketMaster($("#artistName").val())
+})
 
 span.onclick = function () {
   modal.style.display = "none";
