@@ -8,26 +8,55 @@ var containerEl = $("#container");
 var makeBioLine = $("<h1>")
 var makeYearPublishedLine = $("<h1>")
 var makeYearPublished = $("<p>")
-var makeBtn = $("<button>")
-var btnClick = $("#artistBtn")
-var makeBigDiv = $("#row")
+var makealbumBtn = $("<button>")
+var artistBtn = $("#artistBtn")
+var rowEl = $("#row")
+var makeTicketBtn = $("<button>")
+var makeDivBox = $("<div>")
+var makeRelateLine = $("<p>")
+var makeRelateDiv = $("<div>")
+var modal = document.getElementById("myModal");
+var span = document.getElementById("close");
 
-//This function puts the artist info on the page; 3rd tier call
-buttonClick.click(function () {
+artistBtn.click(function (event) {
+  event.preventDefault
+  primaryEl.empty();
+  cardEl.empty();
+  rowEl.attr("style", "visibility:hidden")
   var getArtistInfo = function (data) {
-    makeH2.text(JSON.parse(JSON.stringify(data.artist.name)));
-    makeDiv.append(makeH2);
-    makeTags.text(" TOP TAGS");
+    console.log(data)
+    primaryEl.attr("style", "visibility:visible")
+    cardEl.attr("style", "visibility:visible")
+    makeArtistName.text(JSON.parse(JSON.stringify(data.artist.name)));
+    primaryEl.append(makeArtistName);
+    makeTags.text("TOP TAGS");
+    makeBioLine.attr("class", "bioTitle")
     makeBioLine.text("Short Bio")
     makeP.text(JSON.parse(JSON.stringify(data.artist.bio.summary)));
     makeYearPublishedLine.text("Year Published");
     makeYearPublished.text(JSON.parse(JSON.stringify(data.artist.bio.published)));
-    makeDiv.append(makeTags);
+    primaryEl.append(makeTags);
+    primaryEl.append(makeDivBox)
     for (i = 0; i < 5; i++) {
       var makeTag = $("<p>")
       var makeTagBox = $("<div>")
       makeTag.text(JSON.parse(JSON.stringify(data.artist.tags.tag[i].name)));
-      makeDiv.append(makeTag);
+      primaryEl.append(makeTagBox);
+      makeTag.attr("class", "tagbox")
+      makeTagBox.append(makeTag);
+      makeDivBox.append(makeTagBox)
+    }
+    primaryEl.append(makeRelateLine)
+    makeRelateLine.text("Related Artist")
+    primaryEl.append(makeRelateDiv)
+
+    for (i = 0; i < 5; i++) {
+      var makeRelateBox = $("<div>")
+      
+      var makeRelate = $("<p>")
+      makeRelate.text(JSON.parse(JSON.stringify(data.artist.similar.artist[i].name)));
+      makeRelateBox.append(makeRelate);
+      makeRelateDiv.append(makeRelateBox);
     }
     makeDiv.append(makeBioLine);
     makeDiv.append(makeP);
@@ -105,9 +134,59 @@ var searchLastFM = function (artist) {
     console.log(response)
   });
 
-};
-var searchLastFM2 = function (artist) {
-  var queryURL2 = "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
+$(document).on("click", "#ticketBtn", function () {
+  modal.style.display = "block";
+  var modalEl = $("#modal")
+  var makeHead = $("<p>")
+
+  makeHead.text("UPCOMING EVENTS")
+  modalEl.append(makeHead)
+  function searchTicketMaster(artist) {
+    var queryURL = "https://app.ticketmaster.com/discovery/v2/attractions.json?keyword=" + artist + "&apikey=U4cbp5Q06iBqN3D21GrhUyfD2jsn5lAr"
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function (response) {
+      console.log(response)
+      function searchTicketMaster2(artist) {
+        //var queryURL = "https://app.ticketmaster.com/discovery/v2/events/" + lala + ".json?apikey=U4cbp5Q06iBqN3D21GrhUyfD2jsn5lAr"
+        var queryURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=U4cbp5Q06iBqN3D21GrhUyfD2jsn5lAr&attractionId=" + artist + "&locale=*"
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function (response) {
+          console.log(response)
+          for (i = 0; i < 3; i++) {
+            console.log(i)
+            let makeEventDiv = $("<div>")
+            let makeEvent = $("<p>")
+            let makeDate = $("<p>")
+            let makePrice = $("<p>")
+            let makeVenue = $("<p>")
+            let makeAddress = $("<p>")
+            makeEventDiv.attr("class", "div" + i)
+            makeEventDiv.attr("style", "border-style: solid; border-color: black; border-width: 5px;")
+            modalEl.append(makeEventDiv)
+            makeEvent.text(response._embedded.events[i].name)
+            makeEventDiv.append(makeEvent)
+            makeDate.text("DATE: " + response._embedded.events[i].dates.start.localDate + " " + response._embedded.events[i].dates.start.localTime)
+            makeEventDiv.append(makeDate)
+            makeVenue.text("VENUE: " + response._embedded.events[i]._embedded.venues[0].name)
+            makeEventDiv.append(makeVenue)
+            makeAddress.text("ADDRESS: " + response._embedded.events[i]._embedded.venues[0].address.line1 + " " + " " + response._embedded.events[i]._embedded.venues[0].state.stateCode)
+            makeEventDiv.append(makeAddress)
+            makePrice.text("PRICE RANGE: $" + response._embedded.events[i].priceRanges[0].min + " - $" + response._embedded.events[i].priceRanges[0].max)
+            makeEventDiv.append(makePrice)
+          }
+        });
+      };
+      searchTicketMaster2(response._embedded.attractions[0].id)
+
+    });
+  };
+  searchTicketMaster($("#artistName").val())
+})
 
   $.ajax({
     url: queryURL2,
