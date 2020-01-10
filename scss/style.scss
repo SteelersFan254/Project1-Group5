@@ -93,7 +93,9 @@ main {
     border-radius: $borders;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 80%;
-    opacity: 0.9;
+    opacity: 0.95;
+  //  display: none;
+
 
     @include desktop {
       grid-area: card;
@@ -136,7 +138,10 @@ main {
     border-radius: $borders;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 80%;
-    opacity: 0.9;
+    opacity: 0.95;
+    display: inline-flex;
+    //display: none;
+
 
   }
 
@@ -152,8 +157,9 @@ main {
     display: block;
     text-align: center;
     margin: 50px auto 0 auto;
-    opacity: 0.9;
-    width: 80%;
+    opacity: 0.95;
+   // display: none;
+
 
     @include desktop {
       grid-area: primary;
