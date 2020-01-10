@@ -31,7 +31,11 @@ body {
   background-image: url("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
   font-family: "Montserrat";
   margin: 0;
-
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
 
 
 
@@ -40,11 +44,11 @@ body {
     // background-image: url("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
     max-width: 100%;
     height: 100%;
-    position: absolute;
-    z-index: -1;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    // position: absolute;
+    // z-index: -1;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // background-size: cover;
     opacity: 0.9;
   
 
@@ -93,7 +97,9 @@ main {
     border-radius: $borders;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 80%;
-    opacity: 0.9;
+    opacity: 0.95;
+  //  display: none;
+
 
     @include desktop {
       grid-area: card;
@@ -136,7 +142,10 @@ main {
     border-radius: $borders;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 80%;
-    opacity: 0.9;
+    opacity: 0.95;
+    display: inline-flex;
+    //display: none;
+
 
   }
 
@@ -152,8 +161,9 @@ main {
     display: block;
     text-align: center;
     margin: 50px auto 0 auto;
-    opacity: 0.9;
-    width: 80%;
+    opacity: 0.95;
+   // display: none;
+
 
     @include desktop {
       grid-area: primary;
