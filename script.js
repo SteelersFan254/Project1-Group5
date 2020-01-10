@@ -1,11 +1,7 @@
 var artist = $("#artistName").val()
 var albumBtn = $("#albumBtn");
 var makeDiv = $("<div>");
-<<<<<<< HEAD
-var makeArtistName = $("<ArtistName>");
-=======
 var makeArtistName = $("<artistName>");
->>>>>>> origin
 var makeBio = $("<p>")
 var makeTags = $("<h1>")
 var cardEl = $("#card")
@@ -18,6 +14,8 @@ var artistBtn = $("#artistBtn")
 var rowEl = $("#row")
 var makeTicketBtn = $("<button>")
 var makeDivBox = $("<div>")
+var makeRelateLine = $("<p>")
+var makeRelateDiv = $("<div>")
 var modal = document.getElementById("myModal");
 var span = document.getElementById("close");
 
@@ -31,15 +29,7 @@ artistBtn.click(function (event) {
     primaryEl.attr("style", "visibility:visible")
     cardEl.attr("style", "visibility:visible")
     makeArtistName.text(JSON.parse(JSON.stringify(data.artist.name)));
-<<<<<<< HEAD
     primaryEl.append(makeArtistName);
-=======
-    makeArtistLink.attr("src", "https://www.last.fm/music/" + data.artist.name)
-    makeArtistLink.attr("target", "_blank")
-    primaryEl.append(makeArtistLink);
-    makeArtistName.attr("class", "artistTitle")
-    makeArtistLink.append(makeArtistName)
->>>>>>> origin
     makeTags.text("TOP TAGS");
     makeBioLine.attr("class", "bioTitle")
     makeBioLine.text("Short Bio")
@@ -57,6 +47,18 @@ artistBtn.click(function (event) {
       makeTag.attr("class", "tagbox")
       makeTagBox.append(makeTag);
       makeDivBox.append(makeTagBox)
+    }
+    primaryEl.append(makeRelateLine)
+    makeRelateLine.text("Related Artist")
+    primaryEl.append(makeRelateDiv)
+
+    for (i = 0; i < 5; i++) {
+      var makeRelateBox = $("<div>")
+      
+      var makeRelate = $("<p>")
+      makeRelate.text(JSON.parse(JSON.stringify(data.artist.similar.artist[i].name)));
+      makeRelateBox.append(makeRelate);
+      makeRelateDiv.append(makeRelateBox);
     }
     cardEl.append(makeBioLine);
     cardEl.append(makeBio);
