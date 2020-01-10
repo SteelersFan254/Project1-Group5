@@ -1,24 +1,27 @@
-body {
-  height: 100%;
+body,
+html {
+  height: 1000px;
+  margin: 0;
 }
 
 body {
+  background-image: url("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
   font-family: "Montserrat";
   margin: 0;
 }
 
 body #bg {
-  background-image: url("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
   max-width: 100%;
   height: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: initial;
   position: absolute;
   z-index: -1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.9;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 760px) {
   body #bg {
     width: 100%;
   }
@@ -46,7 +49,7 @@ body header a {
   margin-bottom: 20px;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 760px) {
   main {
     display: -ms-grid;
     display: grid;
@@ -64,11 +67,10 @@ main section#card {
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   width: 80%;
-  opacity: 0.95;
-  display: none;
+  opacity: 0.9;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 760px) {
   main section#card {
     grid-area: card;
     height: -webkit-fit-content;
@@ -98,7 +100,7 @@ main section#card ul li span {
   background-color: #ccdfff;
   border-radius: 50%;
   margin-right: 10px;
-  opacity: 0.95;
+  opacity: 0.9;
 }
 
 main section#card ul li strong {
@@ -109,14 +111,13 @@ main section#card ul li strong {
 
 main section#row {
   background: #fff;
-  padding: 20px;
-  margin: 1em auto;
+  padding: 15px;
+  margin: 50px auto 0 auto;
   border-radius: 15px;
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   width: 80%;
-  opacity: 0.95;
-  display: none;
+  opacity: 0.9;
 }
 
 main section#primary {
@@ -131,15 +132,14 @@ main section#primary {
   display: block;
   text-align: center;
   margin: 50px auto 0 auto;
-  opacity: 0.95;
-  display: none;
+  opacity: 0.9;
+  width: 80%;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 760px) {
   main section#primary {
     grid-area: primary;
     text-align: left;
-    margin: 4em 0 0 4em;
   }
 }
 
@@ -149,7 +149,7 @@ main section#primary h1 {
   text-transform: uppercase;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 760px) {
   main section#primary h1 {
     width: 30%;
     font-size: 2.5em;
@@ -170,15 +170,15 @@ main section#primary a {
   background-color: #fff6bb;
   display: block;
   text-align: center;
-  margin: 30px auto 0 auto;
+  margin: 20px auto 0 auto;
   padding: 15px;
-  opacity: 0.95;
+  opacity: 0.9;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 760px) {
   main section#primary a {
     display: inline-block;
-    padding: 15px 60px;
+    padding: 15px;
   }
 }
 /*# sourceMappingURL=style.css.map */
