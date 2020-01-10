@@ -7,6 +7,20 @@ body {
   margin: 0;
 }
 
+.albumDivs {
+  margin: 1%;
+}
+
+.trackname {
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.tagbox {
+  display: inline;
+  background-color: green;
+  line-height: 35px;
+}
+
 body #bg {
   background-image: url("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
   max-width: 100%;
@@ -65,7 +79,7 @@ main section#card {
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   width: 80%;
   opacity: 0.95;
-  display: none;
+
 }
 
 @media (min-width: 960px) {
@@ -99,7 +113,6 @@ main section#card ul li span {
   border-radius: 50%;
   margin-right: 10px;
   opacity: 0.95;
-  
 }
 
 main section#card ul li strong {
@@ -115,11 +128,10 @@ main section#row {
   border-radius: 15px;
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  width: 80%;
+  width: 95%;
   display: inline-flex;
   opacity: 0.95;
-  visibility: hidden;
-
+  margin-left: 8%;
 }
 
 main section#primary {
@@ -135,8 +147,7 @@ main section#primary {
   text-align: center;
   margin: 50px auto 0 auto;
   opacity: 0.95;
-  display: none;
-  
+  width: 50%;
 }
 
 @media (min-width: 960px) {
