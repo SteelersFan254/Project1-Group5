@@ -1,5 +1,5 @@
 var artist = prompt("asdfas")
-var buttonClick = $("#reset");
+var albumBtn = $("#albumBtn");
 var makeDiv = $("<div>");
 var makeAristName = $("<AristName>");
 var makeBio = $("<p>")
@@ -9,9 +9,10 @@ var primaryEl = $("#primary")
 var makeBioLine = $("<h1>")
 var makeYearPublishedLine = $("<h1>")
 var makeYearPublished = $("<p>")
-var makeBtn = $("<button>")
-var btnClick = $("#artistBtn")
-var makeBigDiv = $("#row")
+var makealbumBtn = $("<button>")
+var artistBtn = $("#artistBtn")
+var rowEl = $("#row")
+var makeTicketBtn = $("<button>")
 
 
 // function searchArtist (){
@@ -21,8 +22,12 @@ var makeBigDiv = $("#row")
 
 // }
 //This function puts the artist info on the page; 3rd tier call
-btnClick.click(function () {
+artistBtn.click(function () {
   var getArtistInfo = function (data) {
+    primaryEl.empty();
+    cardEl.empty();
+    primaryEl.attr("style", "display:block")
+    cardEl.attr("style", "display:block")
     makeAristName.text(JSON.parse(JSON.stringify(data.artist.name)));
     primaryEl.append(makeAristName);
     makeTags.text("TOP TAGS");
@@ -43,9 +48,12 @@ btnClick.click(function () {
     cardEl.append(makeBio);
     primaryEl.append(makeYearPublishedLine);
     primaryEl.append(makeYearPublished);
-    makeBtn.text("Click for Top Albums")
-    makeBtn.attr("id", "albumBtn")
-    primaryEl.append(makeBtn);
+    makealbumBtn.text("Click for Top Albums")
+    makealbumBtn.attr("id", "albumBtn")
+    makeTicketBtn.text("Upcoming Shows")
+    makeTicketBtn.attr("id", "TicketBtn")
+    primaryEl.append(makeTicketBtn);
+    primaryEl.append(makealbumBtn);
 
   }
   function searchLastFM(artist) {
@@ -62,39 +70,32 @@ btnClick.click(function () {
   searchLastFM(artist);
 });
 
-btnClick.click(function (event) {
-  event.preventDefault()
+$(document).on("click","#albumBtn", function(){
+  //artistBtn.click(function () {
+event.preventDefault()
   console.log("button is working")
-
+  rowEl.attr("style", "visibility:visible")
   var getAlbumInfo = function (albums) {
     for (i = 0; i < 3; i++) {
       let makePic = $("<img>")
       let makeDiv = $("<div>")
-      makeBigDiv.append(makeDiv)
-      console.log("adds div" + i)
+      rowEl.append(makeDiv)
       makePic.attr("src", JSON.parse(JSON.stringify(albums.topalbums.album[i].image[2]["#text"])))
       makeDiv.attr("class", "albumDivs")
-      console.log("Creating Div:" + i)
       makeDiv.append(makePic)
-      console.log("Creating Pic:" + i)
       var searchLastFM3 = function (artist) {
         var queryURL3 = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&artist=" + artist + "&album=" + albums.topalbums.album[i].name + "&format=json"
-        console.log("i is at " + i + "in the searchLastFM function")
+
         $.ajax({
           url: queryURL3,
           method: "GET"
         }).then(function (response) {
-          console.log("i is at " + i + "in the AJAX function")
           for (k = 0; k < response.album.tracks.track.length; k++) {
-            console.log(response)
             var makeTrackName = $("<p>")
             makeTrackName.text(JSON.parse(JSON.stringify(response.album.tracks.track[k].name)))
-            console.log("song are produced from the " + i + "album");
-            console.log(response)
             makeDiv.append(makeTrackName)
           }
         });
-        console.log("is at " + i + " after the AJAX function")
       };
       searchLastFM3(artist)
     }
