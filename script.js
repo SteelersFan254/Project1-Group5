@@ -42,7 +42,7 @@ artistBtn.click(function (event) {
       var makeTagBox = $("<div>")
       makeTag.text(JSON.parse(JSON.stringify(data.artist.tags.tag[i].name)));
       primaryEl.append(makeTagBox);
-      makeTagBox.attr("style", "background-color:green")
+      makeTag.attr("class", "tagbox")
       makeTagBox.append(makeTag);
     }
     cardEl.append(makeBioLine);
@@ -92,6 +92,7 @@ $(document).on("click", "#albumBtn", function () {
         }).then(function (response) {
           for (k = 0; k < response.album.tracks.track.length; k++) {
             var makeTrackName = $("<p>")
+            makeTrackName.attr("class", "trackname")
             makeTrackName.text(JSON.parse(JSON.stringify(response.album.tracks.track[k].name)))
             makeDiv.append(makeTrackName)
           }
