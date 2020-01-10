@@ -1,64 +1,42 @@
-var artist = $("#artistName").val()
-var albumBtn = $("#albumBtn");
+var artist = prompt("artist?")
+var buttonClick = $("#reset");
 var makeDiv = $("<div>");
-var makeArtistName = $("<artistName>");
-var makeBio = $("<p>")
+var makeH2 = $("<h2>");
+var makeP = $("<p>")
 var makeTags = $("<h1>")
-var cardEl = $("#card")
-var primaryEl = $("#primary")
+var containerEl = $("#container");
 var makeBioLine = $("<h1>")
 var makeYearPublishedLine = $("<h1>")
 var makeYearPublished = $("<p>")
-var makealbumBtn = $("<button>")
-var artistBtn = $("#artistBtn")
-var rowEl = $("#row")
-var makeTicketBtn = $("<button>")
-var modal = document.getElementById("myModal");
-var span = document.getElementById("close");
+var makeBtn = $("<button>")
+var btnClick = $("#artistBtn")
+var makeBigDiv = $("#row")
 
-artistBtn.click(function (event) {
-  event.preventDefault
-  primaryEl.empty();
-    cardEl.empty();
-    rowEl.attr("style", "visibility:hidden")
+//This function puts the artist info on the page; 3rd tier call
+buttonClick.click(function () {
   var getArtistInfo = function (data) {
-    console.log(data)
-    var makeArtistLink = $("<a href>")
-    primaryEl.attr("style", "display:block")
-    cardEl.attr("style", "display:block")
-    makeArtistName.text(JSON.parse(JSON.stringify(data.artist.name)));
-    makeArtistLink.attr("src", "https://www.last.fm/music/" + data.artist.name)
-    makeArtistLink.attr("target", "_blank")
-    primaryEl.append(makeArtistLink);
-    makeArtistName.attr("class", "artistTitle")
-    makeArtistLink.append(makeArtistName)
-    makeTags.text("TOP TAGS");
-    makeBioLine.attr("class", "bioTitle")
+    makeH2.text(JSON.parse(JSON.stringify(data.artist.name)));
+    makeDiv.append(makeH2);
+    makeTags.text(" TOP TAGS");
     makeBioLine.text("Short Bio")
-    makeBio.attr("class", "bioText")
-    makeBio.text(JSON.parse(JSON.stringify(data.artist.bio.content)));
+    makeP.text(JSON.parse(JSON.stringify(data.artist.bio.summary)));
     makeYearPublishedLine.text("Year Published");
     makeYearPublished.text(JSON.parse(JSON.stringify(data.artist.bio.published)));
-    primaryEl.append(makeTags);
+    makeDiv.append(makeTags);
     for (i = 0; i < 5; i++) {
       var makeTag = $("<p>")
       var makeTagBox = $("<div>")
       makeTag.text(JSON.parse(JSON.stringify(data.artist.tags.tag[i].name)));
-      primaryEl.append(makeTagBox);
-      makeTag.attr("class", "tagbox")
-      makeTagBox.append(makeTag);
+      makeDiv.append(makeTag);
     }
-    cardEl.append(makeBioLine);
-    cardEl.append(makeBio);
-    primaryEl.append(makeYearPublishedLine);
-    primaryEl.append(makeYearPublished);
-    makealbumBtn.text("Click for Top Albums")
-    makealbumBtn.attr("id", "albumBtn")
-    makeTicketBtn.text("Upcoming Shows")
-    makeTicketBtn.attr("id", "ticketBtn")
-    primaryEl.append(makeTicketBtn);
-    primaryEl.append(makealbumBtn);
-
+    makeDiv.append(makeBioLine);
+    makeDiv.append(makeP);
+    makeDiv.append(makeYearPublishedLine);
+    makeDiv.append(makeYearPublished);
+    makeBtn.text("Click for Top Albums")
+    makeBtn.attr("id", "albumBtn")
+    makeDiv.append(makeBtn);
+    containerEl.append(makeDiv);
   }
   function searchLastFM(artist) {
     var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
@@ -70,40 +48,46 @@ artistBtn.click(function (event) {
       getArtistInfo(response);
     });
   };
-  searchLastFM($("#artistName").val());
+  searchLastFM(artist);
 });
 
 $(document).on("click", "#albumBtn", function () {
   event.preventDefault()
   rowEl.empty()
   console.log("button is working")
-  rowEl.attr("style", "visibility:visible")
   var getAlbumInfo = function (albums) {
+
     for (i = 0; i < 3; i++) {
       let makePic = $("<img>")
       let makeDiv = $("<div>")
-      rowEl.append(makeDiv)
+      makeBigDiv.append(makeDiv)
+      console.log("adds div" + i)
       makePic.attr("src", JSON.parse(JSON.stringify(albums.topalbums.album[i].image[2]["#text"])))
-      makeDiv.attr("class", "albumDivs")
+      makeDiv.attr("class", "div" + i)
+      console.log("Creating Div:" + i)
       makeDiv.append(makePic)
+      console.log("Creating Pic:" + i)
       var searchLastFM3 = function (artist) {
         var queryURL3 = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&artist=" + artist + "&album=" + albums.topalbums.album[i].name + "&format=json"
-
+        console.log("i is at " + i + "in the searchLastFM function")
         $.ajax({
           url: queryURL3,
           method: "GET"
         }).then(function (response) {
+          console.log("i is at " + i + "in the AJAX function")
           for (k = 0; k < response.album.tracks.track.length; k++) {
+            console.log(response)
             var makeTrackName = $("<p>")
-            makeTrackName.attr("class", "trackname")
             makeTrackName.text(JSON.parse(JSON.stringify(response.album.tracks.track[k].name)))
+            console.log("song are produced from the " + i + "album");
             makeDiv.append(makeTrackName)
           }
         });
+        console.log("is at " + i + " after the AJAX function")
       };
-      searchLastFM3($("#artistName").val())
+      searchLastFM3(artist)
     }
-<<<<<<< HEAD
+
   };
   ///add pic1 to div1
   ///add tracks to div1
@@ -132,11 +116,9 @@ var searchLastFM2 = function (artist) {
   }).then(function (response) {
     getAlbumInfo(response);
   });
-=======
   }
   var searchLastFM2 = function (artist) {
     var queryURL2 = "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
->>>>>>> 00fbba1f030c8350cc6ab5a70c7fa8ef33218d7b
 
     $.ajax({
       url: queryURL2,
@@ -146,7 +128,7 @@ var searchLastFM2 = function (artist) {
     });
   };
   searchLastFM2($("#artistName").val())
-});
+
 
 
 // $(document).on("click", "#ticketBtn", function () {
@@ -212,3 +194,21 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 }
+
+
+;
+var searchLastFM3 = function (artist) {
+  var queryURL3 = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&artist=" + artist + "&album=Indicud&format=json"
+
+  $.ajax({
+    url: queryURL3,
+    method: "GET"
+  }).then(function (response) {
+    console.log(response);
+  });
+
+};
+searchLastFM(artist);
+//calling the Ajax function; 1st tier call
+searchLastFM2(artist);
+
