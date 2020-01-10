@@ -96,6 +96,7 @@ main section#card {
   opacity: 0.9;
 =======
   opacity: 0.95;
+  visibility:hidden;
   background-color: #fff;
 
 >>>>>>> master
@@ -111,6 +112,7 @@ main section#card {
         -ms-grid-row-align: center;
         align-self: center;
     margin: 1em;
+    visibility:hidden;
   }
 }
 
@@ -150,6 +152,8 @@ main section#row {
   width: 95%;
   display: inline-flex;
   opacity: 0.95;
+  
+  visibility:hidden;
   margin-left: 1%;
 }
 
@@ -166,6 +170,8 @@ main section#primary {
   text-align: center;
   margin: 50px auto 0 auto;
   opacity: 0.95;
+
+  visibility:hidden;
   width: 75%;
 }
 
