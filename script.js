@@ -16,6 +16,9 @@ var makeTicketBtn = $("<button>")
 var makeDivBox = $("<div>")
 var makeRelateLine = $("<p>")
 var makeRelateDiv = $("<div>")
+var testA = 4
+var testB = 5
+var testC = 6
 var modal = document.getElementById("myModal");
 var span = document.getElementById("close");
 
