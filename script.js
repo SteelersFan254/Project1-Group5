@@ -1,7 +1,11 @@
 var artist = $("#artistName").val()
 var albumBtn = $("#albumBtn");
 var makeDiv = $("<div>");
+<<<<<<< HEAD
 var makeArtistName = $("<ArtistName>");
+=======
+var makeArtistName = $("<artistName>");
+>>>>>>> origin
 var makeBio = $("<p>")
 var makeTags = $("<h1>")
 var cardEl = $("#card")
@@ -27,9 +31,19 @@ artistBtn.click(function (event) {
     primaryEl.attr("style", "visibility:visible")
     cardEl.attr("style", "visibility:visible")
     makeArtistName.text(JSON.parse(JSON.stringify(data.artist.name)));
+<<<<<<< HEAD
     primaryEl.append(makeArtistName);
+=======
+    makeArtistLink.attr("src", "https://www.last.fm/music/" + data.artist.name)
+    makeArtistLink.attr("target", "_blank")
+    primaryEl.append(makeArtistLink);
+    makeArtistName.attr("class", "artistTitle")
+    makeArtistLink.append(makeArtistName)
+>>>>>>> origin
     makeTags.text("TOP TAGS");
+    makeBioLine.attr("class", "bioTitle")
     makeBioLine.text("Short Bio")
+    makeBio.attr("class", "bioText")
     makeBio.text(JSON.parse(JSON.stringify(data.artist.bio.content)));
     makeYearPublishedLine.text("Year Published");
     makeYearPublished.text(JSON.parse(JSON.stringify(data.artist.bio.published)));
