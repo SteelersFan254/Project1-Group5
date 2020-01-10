@@ -36,7 +36,7 @@ btnClick.click(function () {
       var makeTagBox = $("<div>")
       makeTag.text(JSON.parse(JSON.stringify(data.artist.tags.tag[i].name)));
       primaryEl.append(makeTagBox);
-      makeTagBox.attr("style", "background-color:green")
+      makeTag.attr("class", "tagbox")
       makeTagBox.append(makeTag);
     }
     cardEl.append(makeBioLine);
@@ -88,6 +88,7 @@ btnClick.click(function (event) {
           for (k = 0; k < response.album.tracks.track.length; k++) {
             console.log(response)
             var makeTrackName = $("<p>")
+            makeTrackName.attr("class", "trackname")
             makeTrackName.text(JSON.parse(JSON.stringify(response.album.tracks.track[k].name)))
             console.log("song are produced from the " + i + "album");
             console.log(response)

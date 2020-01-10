@@ -7,6 +7,20 @@ body {
   margin: 0;
 }
 
+.albumDivs {
+  margin: 1%;
+}
+
+.trackname {
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.tagbox {
+  display: inline;
+  background-color: green;
+  line-height: 35px;
+}
+
 body #bg {
   background-image: url("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
   max-width: 100%;
@@ -117,7 +131,7 @@ main section#row {
   width: 80%;
   display: inline-flex;
   opacity: 0.95;
-
+  margin-left: 8%;
 }
 
 main section#primary {
@@ -133,7 +147,7 @@ main section#primary {
   text-align: center;
   margin: 50px auto 0 auto;
   opacity: 0.95;
-  
+  width: 50%;
 }
 
 @media (min-width: 960px) {
