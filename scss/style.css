@@ -4,6 +4,37 @@ body {
   margin: 0;
 }
 
+.artistTitle {
+  font-size: 100px;
+  font-family: "Century Gothic", sans-serif;
+}
+
+.albumDivs {
+  margin: 1%;
+}
+
+.trackname {
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.tagbox {
+  display: inline;
+  background-color: yellow;
+  line-height: 35px;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.bioTitle {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.bioText {
+  font-family: Verdana, Geneva, sans-serif;
+  overflow: scroll;
+  height: 250px;
+}
+
 body #bg {
   max-width: 100%;
   height: 100%;
@@ -61,7 +92,13 @@ main section#card {
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   width: 80%;
+<<<<<<< HEAD
   opacity: 0.9;
+=======
+  opacity: 0.95;
+  background-color: #fff;
+
+>>>>>>> master
 }
 
 @media (min-width: 760px) {
@@ -95,7 +132,6 @@ main section#card ul li span {
   border-radius: 50%;
   margin-right: 10px;
   opacity: 0.95;
-  
 }
 
 main section#card ul li strong {
@@ -111,11 +147,10 @@ main section#row {
   border-radius: 15px;
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  width: 80%;
+  width: 95%;
   display: inline-flex;
   opacity: 0.95;
-  visibility: hidden;
-
+  margin-left: 1%;
 }
 
 main section#primary {
@@ -126,13 +161,12 @@ main section#primary {
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
-  background-color: #fff6bb;
+  background-color: #fff;
   display: block;
   text-align: center;
   margin: 50px auto 0 auto;
   opacity: 0.95;
-  display: none;
-  
+  width: 75%;
 }
 
 @media (min-width: 760px) {
@@ -144,8 +178,9 @@ main section#primary {
 
 main section#primary h1 {
   font-size: 2em;
-  margin-top: 10px;
+  margin-top: 2%;
   text-transform: uppercase;
+  margin-bottom: 2%;
 }
 
 @media (min-width: 760px) {

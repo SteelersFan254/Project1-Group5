@@ -1,7 +1,7 @@
 var artist = $("#artistName").val()
 var albumBtn = $("#albumBtn");
 var makeDiv = $("<div>");
-var makeArtistName = $("<AristName>");
+var makeArtistName = $("<artistName>");
 var makeBio = $("<p>")
 var makeTags = $("<h1>")
 var cardEl = $("#card")
@@ -30,9 +30,12 @@ artistBtn.click(function (event) {
     makeArtistLink.attr("src", "https://www.last.fm/music/" + data.artist.name)
     makeArtistLink.attr("target", "_blank")
     primaryEl.append(makeArtistLink);
+    makeArtistName.attr("class", "artistTitle")
     makeArtistLink.append(makeArtistName)
     makeTags.text("TOP TAGS");
+    makeBioLine.attr("class", "bioTitle")
     makeBioLine.text("Short Bio")
+    makeBio.attr("class", "bioText")
     makeBio.text(JSON.parse(JSON.stringify(data.artist.bio.content)));
     makeYearPublishedLine.text("Year Published");
     makeYearPublished.text(JSON.parse(JSON.stringify(data.artist.bio.published)));
@@ -42,7 +45,7 @@ artistBtn.click(function (event) {
       var makeTagBox = $("<div>")
       makeTag.text(JSON.parse(JSON.stringify(data.artist.tags.tag[i].name)));
       primaryEl.append(makeTagBox);
-      makeTagBox.attr("style", "background-color:green")
+      makeTag.attr("class", "tagbox")
       makeTagBox.append(makeTag);
     }
     cardEl.append(makeBioLine);
@@ -92,6 +95,7 @@ $(document).on("click", "#albumBtn", function () {
         }).then(function (response) {
           for (k = 0; k < response.album.tracks.track.length; k++) {
             var makeTrackName = $("<p>")
+            makeTrackName.attr("class", "trackname")
             makeTrackName.text(JSON.parse(JSON.stringify(response.album.tracks.track[k].name)))
             makeDiv.append(makeTrackName)
           }
