@@ -128,7 +128,7 @@ main section#row {
   border-radius: 15px;
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  width: 80%;
+  width: 95%;
   display: inline-flex;
   opacity: 0.95;
   margin-left: 8%;
