@@ -106,14 +106,12 @@ btnClick.click(function () {
       };
       searchLastFM3(artist)
     }
-  });
+  };
   ///add pic1 to div1
   ///add tracks to div1
   ///add div 1 to bigdiv
 
-
-
-};
+});
 var searchLastFM = function (artist) {
   var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
 
