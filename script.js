@@ -70,51 +70,16 @@ artistBtn.click(function (event) {
   searchLastFM($("#artistName").val());
 });
 
-<<<<<<< HEAD
-
-// takes an artist
-// looks up their list of albums
-// adds that list of albums with their songs to the page
-
-
-
-
-btnClick.click(function () {
-  console.log("button is working")
-  var getAlbumInfo = function (albums) {
-
-  btnClick.click(function () {
-    console.log(albums);
-    makeBigDiv.attr("class", "albumsContainer")
-
-    containerEl.append(makeBigDiv);
-    var makePic = $("<img>")
-
-
-
-
-btnClick.click(function () {
-=======
 $(document).on("click", "#albumBtn", function () {
   event.preventDefault()
   rowEl.empty()
->>>>>>> f145f5a73d4ae995fb3d766235f99d749e98ca2b
   console.log("button is working")
   rowEl.attr("style", "visibility:visible")
   var getAlbumInfo = function (albums) {
-<<<<<<< HEAD
-
-    for (i = 0; i < 3; i++) {
-      let makePic = $("<img>")
-      let makeDiv = $("<div>")
-      makeBigDiv.append(makeDiv)
-      console.log("adds div" + i)
-=======
     for (i = 0; i < 3; i++) {
       let makePic = $("<img>")
       let makeDiv = $("<div>")
       rowEl.append(makeDiv)
->>>>>>> f145f5a73d4ae995fb3d766235f99d749e98ca2b
       makePic.attr("src", JSON.parse(JSON.stringify(albums.topalbums.album[i].image[2]["#text"])))
       makeDiv.attr("class", "albumDivs")
       makeDiv.append(makePic)
@@ -134,54 +99,6 @@ $(document).on("click", "#albumBtn", function () {
       };
       searchLastFM3($("#artistName").val())
     }
-<<<<<<< HEAD
-  });
-  ///add pic1 to div1
-  ///add tracks to div1
-  ///add div 1 to bigdiv
-
-
-
-};
-var searchLastFM = function (artist) {
-  var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
-
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).then(function (response) {
-    getArtistInfo(response);
-    //Calling the function inside of this function; 2nd tier call
-    console.log(response)
-  });
-
-};
-var searchLastFM2 = function (artist) {
-  var queryURL2 = "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
-
-  $.ajax({
-    url: queryURL2,
-    method: "GET"
-  }).then(function (response) {
-    getAlbumInfo(response);
-  });
-
-};
-var searchLastFM3 = function (artist) {
-  var queryURL3 = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&artist=" + artist + "&album=Indicud&format=json"
-
-  $.ajax({
-    url: queryURL3,
-    method: "GET"
-  }).then(function (response) {
-    console.log(response);
-  });
-
-};
-searchLastFM(artist);
-//calling the Ajax function; 1st tier call
-searchLastFM2(artist);
-=======
   }
   var searchLastFM2 = function (artist) {
     var queryURL2 = "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
@@ -260,4 +177,3 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 }
->>>>>>> f145f5a73d4ae995fb3d766235f99d749e98ca2b
