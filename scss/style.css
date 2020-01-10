@@ -34,6 +34,8 @@ body {
 
 .bioText {
   font-family: Verdana, Geneva, sans-serif;
+  overflow: scroll;
+  height: 250px;
 }
 
 body #bg {
