@@ -131,7 +131,7 @@ main section#row {
   width: 95%;
   display: inline-flex;
   opacity: 0.95;
-  margin-left: 8%;
+  margin-left: 1%;
 }
 
 main section#primary {
@@ -147,7 +147,7 @@ main section#primary {
   text-align: center;
   margin: 50px auto 0 auto;
   opacity: 0.95;
-  width: 50%;
+  width: 75%;
 }
 
 @media (min-width: 960px) {
