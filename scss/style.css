@@ -2,47 +2,16 @@ body {
   background-image: url("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
   font-family: "Montserrat";
   margin: 0;
-}
-
-.artistTitle {
-  font-size: 100px;
-  font-family: "Century Gothic", sans-serif;
-}
-
-.albumDivs {
-  margin: 1%;
-}
-
-.trackname {
-  font-family: "Arial Black", Gadget, sans-serif;
-}
-
-.tagbox {
-  display: inline;
-  background-color: yellow;
-  line-height: 35px;
-  padding-left: 3%;
-  padding-right: 3%;
-}
-
-.bioTitle {
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-}
-
-.bioText {
-  font-family: Verdana, Geneva, sans-serif;
-  overflow: scroll;
-  height: 250px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
 }
 
 body #bg {
   max-width: 100%;
   height: 100%;
-  position: absolute;
-  z-index: -1;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   opacity: 0.9;
 }
 
@@ -92,14 +61,7 @@ main section#card {
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   width: 80%;
-<<<<<<< HEAD
-  opacity: 0.9;
-=======
   opacity: 0.95;
-  visibility:hidden;
-  background-color: #fff;
-
->>>>>>> master
 }
 
 @media (min-width: 760px) {
@@ -112,7 +74,6 @@ main section#card {
         -ms-grid-row-align: center;
         align-self: center;
     margin: 1em;
-    visibility:hidden;
   }
 }
 
@@ -133,7 +94,7 @@ main section#card ul li span {
   background-color: #ccdfff;
   border-radius: 50%;
   margin-right: 10px;
-  opacity: 0.95;
+  opacity: 0.9;
 }
 
 main section#card ul li strong {
@@ -149,12 +110,11 @@ main section#row {
   border-radius: 15px;
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  width: 95%;
-  display: inline-flex;
+  width: 80%;
   opacity: 0.95;
-  
-  visibility:hidden;
-  margin-left: 1%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 main section#primary {
@@ -165,14 +125,11 @@ main section#primary {
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
-  background-color: #fff;
+  background-color: #fff6bb;
   display: block;
   text-align: center;
   margin: 50px auto 0 auto;
   opacity: 0.95;
-
-  visibility:hidden;
-  width: 75%;
 }
 
 @media (min-width: 760px) {
@@ -184,9 +141,8 @@ main section#primary {
 
 main section#primary h1 {
   font-size: 2em;
-  margin-top: 2%;
+  margin-top: 10px;
   text-transform: uppercase;
-  margin-bottom: 2%;
 }
 
 @media (min-width: 760px) {
