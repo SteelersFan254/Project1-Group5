@@ -31,6 +31,7 @@ artistBtn.click(function (event) {
     console.log(data)
     primaryEl.attr("style", "visibility:visible")
     cardEl.attr("style", "visibility:visible")
+    makeArtistName.attr("class","artistTitle")
     makeArtistName.text(JSON.parse(JSON.stringify(data.artist.name)));
     primaryEl.append(makeArtistName);
     makeTags.text("TOP TAGS");
@@ -150,7 +151,7 @@ $(document).on("click", "#ticketBtn", function () {
       console.log(response)
       function searchTicketMaster2(artist) {
         //var queryURL = "https://app.ticketmaster.com/discovery/v2/events/" + lala + ".json?apikey=U4cbp5Q06iBqN3D21GrhUyfD2jsn5lAr"
-        var queryURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=U4cbp5Q06iBqN3D21GrhUyfD2jsn5lAr&attractionId=" + artist + "&locale=*"
+        //var queryURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=U4cbp5Q06iBqN3D21GrhUyfD2jsn5lAr&attractionId=" + artist + "&locale=*"
         $.ajax({
           url: queryURL,
           method: "GET"

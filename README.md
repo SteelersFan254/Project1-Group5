@@ -7,3 +7,6 @@ repo for out first project
 ### Acknowledgments
 
 Wireframe : [Image of sick Wireframe](IMG_0129.jpg)
+
+// Take a picture of deployed site and add
+// Go through website step by step and describe in README.md
