@@ -31,6 +31,7 @@ artistBtn.click(function (event) {
     console.log(data)
     primaryEl.attr("style", "visibility:visible")
     cardEl.attr("style", "visibility:visible")
+    makeArtistName.attr("class","artistTitle")
     makeArtistName.text(JSON.parse(JSON.stringify(data.artist.name)));
     primaryEl.append(makeArtistName);
     makeTags.text("TOP TAGS");
@@ -76,7 +77,7 @@ artistBtn.click(function (event) {
 
   }
   function searchLastFM(artist) {
-    var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
+    var queryURL = "https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
 
     $.ajax({
       url: queryURL,
@@ -102,7 +103,7 @@ $(document).on("click", "#albumBtn", function () {
       makeDiv.attr("class", "albumDivs")
       makeDiv.append(makePic)
       var searchLastFM3 = function (artist) {
-        var queryURL3 = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&artist=" + artist + "&album=" + albums.topalbums.album[i].name + "&format=json"
+        var queryURL3 = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&artist=" + artist + "&album=" + albums.topalbums.album[i].name + "&format=json"
 
         $.ajax({
           url: queryURL3,
@@ -120,7 +121,7 @@ $(document).on("click", "#albumBtn", function () {
     }
   }
   var searchLastFM2 = function (artist) {
-    var queryURL2 = "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
+    var queryURL2 = "https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" + artist + "&api_key=2adfbf73b317cd43f7ed6f612c4c8e9e&format=json"
 
     $.ajax({
       url: queryURL2,
