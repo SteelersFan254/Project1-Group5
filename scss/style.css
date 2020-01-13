@@ -7,6 +7,9 @@ body {
   background-position: center;
   background-size: cover;
   z-index: -1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 body #bg {
@@ -41,6 +44,13 @@ body header a {
   font-size: 2em;
   color: white;
   margin-bottom: 20px;
+}
+
+main {
+  /* Footer
+=================== */
+  /* Column system
+=================== */
 }
 
 @media (min-width: 760px) {
@@ -175,6 +185,47 @@ main section#primary a {
   main section#primary a {
     display: inline-block;
     padding: 15px;
+  }
+}
+
+main footer {
+  background: #232323;
+  color: #fff;
+  text-align: left;
+  padding: 5em 0;
+}
+
+main [class^=col-] {
+  width: 100%;
+  margin-top: 1em;
+}
+
+main [class^=col-]:first-child {
+  margin-top: 0;
+}
+
+main .col-1 {
+  width: 33.333334%;
+  float: left;
+}
+
+@media (min-width: 40rem) {
+  main [class^=col-] {
+    float: left;
+    padding: 0 .5em;
+    margin-top: 0;
+  }
+  main [class^=col-]:first-child {
+    padding-left: 0;
+  }
+  main [class^=col-]:last-child {
+    padding-right: 0;
+  }
+  main .col-3 {
+    width: 50%;
+  }
+  main .col-1 {
+    width: 16.6666%;
   }
 }
 /*# sourceMappingURL=style.css.map */

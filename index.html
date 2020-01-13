@@ -5,95 +5,109 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Artist Search</title>
-    <link rel="stylesheet" href="scss/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title>Artist Search</title>
+  <link rel="stylesheet" href="scss/style.css">
 
 
 </head>
 <style>
-    body {font-family: Arial, Helvetica, sans-serif;}
-    
-    /* The Modal (background) */
-    .modal {
-      display: none; /* Hidden by default */
-      position: fixed; /* Stay in place */
-      z-index: 1; /* Sit on top */
-      padding-top: 100px; /* Location of the box */
-      left: 0;
-      top: 0;
-      width: 100%; /* Full width */
-      height: 100%; /* Full height */
-      overflow: auto; /* Enable scroll if needed */
-      background-color: rgb(0,0,0); /* Fallback color */
-      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    }
-    
-    /* Modal Content */
-    .modal-content {
-      background-color: red;
-      margin: auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-    }
-    
-    /* The Close Button */
-    #close {
-      color: #aaaaaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-    }
-    
-    .close:hover,
-    .close:focus {
-      color: #000;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    </style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  /* The Modal (background) */
+  .modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+  }
+
+  /* Modal Content */
+  .modal-content {
+    background-color: red;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+
+  /* The Close Button */
+  #close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style>
+
 <body>
 
-    <section id="bg">
-        <header>
-            <a href="#">Artist Search</a><br>
-            <!-- <label for="input">Search For Your Favorite Artist</label> -->
-            <input class="input" type="text" id="artistName" placeholder="Artist Name" name="artist">
-            <button class="btn" id="artistBtn">Search</button>
-        </header>
-        <main>
+  <section id="bg">
+    <header>
+      <a href="#">Artist Search</a><br>
+      <!-- <label for="input">Search For Your Favorite Artist</label> -->
+      <input class="input" type="text" id="artistName" placeholder="Artist Name" name="artist">
+      <button class="btn" id="artistBtn">Search</button>
+    </header>
+    <main class="main">
 
-            <!-- image -->
-            <section id="primary">
-            </section>
+      <!-- image -->
+      <section id="primary">
+      </section>
 
-            <!-- bio section -->
-            <section id="row">
-            </section>
+      <!-- bio section -->
+      <section id="row">
+      </section>
 
-            <!-- Albums or Tracks go here-->
-            <section id="card">
+      <!-- Albums or Tracks go here-->
+      <section id="card">
 
-            </section>
-        
-
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-
-                <!-- Modal content -->
-                <div class="modal-content" id="modal">
-                    <span id="close">&times;</span>
-                    
-                </div>
-
-            </div>
+      </section>
 
 
-        </main>
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content" id="modal">
+          <span id="close">&times;</span>
+
         </div>
-        <script src="script.js"></script>
-    </section>
+
+      </div>
+
+
+    </main>
+    </div>
+
+  </section>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
