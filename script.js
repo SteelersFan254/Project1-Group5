@@ -151,7 +151,7 @@ $(document).on("click", "#ticketBtn", function () {
       console.log(response)
       function searchTicketMaster2(artist) {
         //var queryURL = "https://app.ticketmaster.com/discovery/v2/events/" + lala + ".json?apikey=U4cbp5Q06iBqN3D21GrhUyfD2jsn5lAr"
-        var queryURL = "https://app.ticketmaster.com/discovery/v2/events?apikey=U4cbp5Q06iBqN3D21GrhUyfD2jsn5lAr&attractionId=" + artist + "&locale=*"
+        var queryURL = "https://cors-ut-bootcamp.herokuapp.com/app.ticketmaster.com/discovery/v2/events?apikey=U4cbp5Q06iBqN3D21GrhUyfD2jsn5lAr&attractionId=" + artist + "&locale=*"
         $.ajax({
           url: queryURL,
           method: "GET"
